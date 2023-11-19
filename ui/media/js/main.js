@@ -281,17 +281,17 @@ function setServerStatus(event) {
         case "online":
             serverStatusColor.style.color = "var(--status-green)"
             serverStatusMsg.style.color = "var(--status-green)"
-            serverStatusMsg.innerText = "Stable Diffusion is " + event.message
+            serverStatusMsg.innerText = "Stable Diffusion " + event.message
             break
         case "busy":
             serverStatusColor.style.color = "var(--status-orange)"
             serverStatusMsg.style.color = "var(--status-orange)"
-            serverStatusMsg.innerText = "Stable Diffusion is " + event.message
+            serverStatusMsg.innerText = "Stable Diffusion " + event.message
             break
         case "error":
             serverStatusColor.style.color = "var(--status-red)"
             serverStatusMsg.style.color = "var(--status-red)"
-            serverStatusMsg.innerText = "Stable Diffusion has stopped"
+            serverStatusMsg.innerText = "Stable Diffusion остановлен"
             break
     }
     if (SD.serverState.devices) {
@@ -1016,7 +1016,7 @@ function makeImage() {
     numInferenceStepsField.classList.remove("validation-failed")
 
     if (controlnetModelField.value === "" && IMAGE_REGEX.test(controlImagePreview.src)) {
-        alert("Please choose a ControlNet model, to use the ControlNet image.")
+        alert("Выберите модель, чтобы использовать образ изображения.")
         document.getElementById("controlnet_model").classList.add("validation-failed")
         return
     }
@@ -1767,16 +1767,34 @@ heightField.addEventListener("change", onDimensionChange)
 function renameMakeImageButton() {
     let totalImages =
         Math.max(parseInt(numOutputsTotalField.value), parseInt(numOutputsParallelField.value)) * getPromptsNumber()
-    let imageLabel = "Image"
+    let imageLabel = "изображение"
     if (totalImages > 1) {
-        imageLabel = totalImages + " Images"
+        // imageLabel = totalImages + " Images"
+
+        /**
+         * Приводим склонение числительных в соответствие с Русский языком.
+         * @param value
+         * @param words
+         * @returns {*}
+         */
+        function num_word(value, words){
+            value = Math.abs(value) % 100;
+            var num = value % 10;
+            if(value > 10 && value < 20) return words[2];
+            if(num > 1 && num < 5) return words[1];
+            if(num == 1) return words[0];
+            return words[2];
+        }
+        imageLabel = totalImages + num_word(totalImages, [' изображение', ' изображения', ' изображений']);
+
+
     }
     if (SD.activeTasks.size == 0) {
-        if (totalImages >= 10000) makeImageBtn.innerText = "Make 10000+ images"
-        else makeImageBtn.innerText = "Make " + imageLabel
+        if (totalImages >= 10000) makeImageBtn.innerText = "Создать 10000+ изображений"
+        else makeImageBtn.innerText = "Создать " + imageLabel
     } else {
-        if (totalImages >= 10000) makeImageBtn.innerText = "Enqueue 10000+ images"
-        else makeImageBtn.innerText = "Enqueue Next " + imageLabel
+        if (totalImages >= 10000) makeImageBtn.innerText = "Поставить в очередь 10000+ изображений"
+        else makeImageBtn.innerText = "Поставить в очередь " + imageLabel
     }
 }
 numOutputsTotalField.addEventListener("change", renameMakeImageButton)

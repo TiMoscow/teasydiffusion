@@ -249,13 +249,13 @@
                     // Wait for init to complete before updating status.
                     break
                 case ServerStates.online:
-                    setServerStatus("online", "ready")
+                    setServerStatus("online", "готовый1")
                     break
                 case ServerStates.loadingModel:
-                    setServerStatus("busy", "loading..")
+                    setServerStatus("busy", "загрузка..")
                     break
                 case ServerStates.rendering:
-                    setServerStatus("busy", "rendering..")
+                    setServerStatus("busy", "предоставление..")
                     break
                 default:
                     // Unavailable

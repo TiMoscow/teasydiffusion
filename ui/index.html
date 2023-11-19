@@ -62,39 +62,39 @@
                 <div id="editor-inputs-prompt" class="row">
                     <div id="prompt-toolbar" class="split-toolbar">
                         <div id="prompt-toolbar-left" class="toolbar-left">
-                            <label for="prompt"><b>Enter Prompt</b>
+                            <label for="prompt"><b>Введите «Запрос»</b>
                                 <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip right">
-                                    You can type your prompts in the below textbox or load them from a file. You can also
-                                    reload tasks from metadata embedded in PNG, WEBP and JPEG images (enable embedding from the Settings).
+                                    Запросы можно ввести в приведенное ниже текстовое поле или загрузить их из файла.
+                                    Вы также можете предзагрузить запросы из пресетов, встроенных в образы PNG, WEBP и JPEG (включить встраивание из параметров).
                                 </span></i>
                             </label>
-                            <small>or</small>
-                            <button id="promptsFromFileBtn" class="tertiaryButton smallButton">Load from a file</button>
+                            <small>или</small>
+                            <button id="promptsFromFileBtn" class="tertiaryButton smallButton">Загрузка из файла</button>
                         </div>
                         <div id="prompt-toolbar-right" class="toolbar-right">
-                            <button id="image-modifier-dropdown" class="tertiaryButton smallButton">+ Image Modifiers</button>
-                            <button id="embeddings-button" class="tertiaryButton smallButton displayNone">+ Embedding</button>
+                            <button id="image-modifier-dropdown" class="tertiaryButton smallButton">+ Пресеты</button>
+                            <button id="embeddings-button" class="tertiaryButton smallButton displayNone">+ Свои пресеты</button>
                         </div>
                     </div>
-                    <textarea id="prompt" class="col-free">a photograph of an astronaut riding a horse</textarea>
+                    <textarea id="prompt" class="col-free">An abandoned amusement park reclaimed by nature, with rusted roller coasters and a carousel frozen in time. blurry</textarea>
                     <input id="prompt_from_file" name="prompt_from_file" type="file" /> <!-- hidden -->
                     <label for="negative_prompt" class="collapsible" id="negative_prompt_handle">
-                        Negative Prompt
-                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/Writing-prompts#negative-prompts" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top">Click to learn more about Negative Prompts</span></i></a>
-                        <small>(optional)</small>
+                        Отрицательный запрос
+                        <a href="https://yandex.ru/search/?text=Click+to+learn+more+about+Negative+Prompts" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top">Щелкните, чтобы узнать больше о негативных запросах (сейчас недоступно)</span></i></a>
+                        <small>(на выбор)</small>
                     </label>
-                    <button id="negative-embeddings-button" class="tertiaryButton smallButton displayNone">+ Negative Embedding</button>
+                    <button id="negative-embeddings-button" class="tertiaryButton smallButton displayNone">+ Отрицательные пресеты</button>
                     <div class="collapsible-content">
-                        <textarea id="negative_prompt" name="negative_prompt" placeholder="list the things to remove from the image (e.g. fog, green)"></textarea>
+                        <textarea id="negative_prompt" name="negative_prompt" placeholder="перечислить вещи, которые нужно удалить из изображения (пример: fog, green)"></textarea>
                     </div>
                 </div>
 
                 <div id="editor-inputs-init-image" class="row">
-                    <label for="init_image">Initial Image (img2img) <small>(optional)</small> </label>
+                    <label for="init_image">Исходное изображение <small>(на выбор)</small> </label>
                     <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top">
-                        Add img2img source image using the Browse button, via drag & drop from external file or browser image (incl.
-                        rendered image) or by pasting an image from the clipboard using Ctrl+V.<br /><br />
-                        You may also reload the metadata embedded in a PNG, WEBP or JPEG image (enable embedding from the Settings).
+                        Добавление исходного изображения с помощью кнопки «Обзор» путем перетаскивания из внешнего файла или изображения браузера
+                        (включая визуализированное изображение) или путем вставки изображения из буфера обмена с помощью клавиш Ctrl + V.<br /><br />
+                        Также можно предзагрузить пресеты, встроенные в образ PNG, WEBP или JPEG.
                     </span></i>
 
                     <div id="init_image_preview_container" class="image_preview_container">
@@ -106,38 +106,38 @@
                         <div id="init_image_buttons">
                             <div class="button">
                                 <i class="fa-regular fa-folder-open"></i>
-                                Browse
+                                Обзор
                                 <input id="init_image" name="init_image" type="file" />
                             </div>
                             <div id="init_image_button_draw" class="button">
                                 <i class="fa-solid fa-pencil"></i>
-                                Draw
+                                Рисовать
                             </div>
                             <div id="inpaint_button_container">
                                 <div id="init_image_button_inpaint" class="button">
                                     <i class="fa-solid fa-paintbrush"></i>
-                                    Inpaint
+                                    Изменить
                                 </div>
                                 <input id="enable_mask" name="enable_mask" type="checkbox">
                             </div>
                         </div>
                     </div>
 
-                    <div id="apply_color_correction_setting" class="pl-5"><input id="apply_color_correction" name="apply_color_correction" type="checkbox"> <label for="apply_color_correction">Preserve color profile <small>(helps during inpainting)</small></label></div>
-                    <div id="strict_mask_border_setting" class="pl-5"><input id="strict_mask_border" name="strict_mask_border" type="checkbox"> <label for="strict_mask_border">Strict Mask Border <small>(won't modify outside the mask, but the mask border might be visible)</small></label></div>
+                    <div id="apply_color_correction_setting" class="pl-5"><input id="apply_color_correction" name="apply_color_correction" type="checkbox"> <label for="apply_color_correction">Сохранение цветового профиля <small>(помогает во время заливки)</small></label></div>
+                    <div id="strict_mask_border_setting" class="pl-5"><input id="strict_mask_border" name="strict_mask_border" type="checkbox"> <label for="strict_mask_border">Строгая граница маски <small>(не будет изменяться вне маски, но граница маски может быть видимой)</small></label></div>
 
                 </div>
 
                 <div id="editor-inputs-tags-container" class="row">
-                    <label>Image Modifiers <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip right">Click an Image Modifier to remove it, right-click to temporarily disable it, use Ctrl+Mouse Wheel to adjust its weight</span></i></label>
+                    <label>Image Modifiers <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip right">Щелкните модификатор изображения, чтобы удалить его, щелкните правой кнопкой мыши, чтобы временно отключить его, и с помощью клавиш Ctrl + Колесо мыши для регулировки</span></i></label>
                     <div id="editor-inputs-tags-list"></div>
                 </div>
 
-                <button id="makeImage" class="primaryButton">Make Image</button>
+                <button id="makeImage" class="primaryButton">Создать изображение</button>
 		<div id="render-buttons">
-		   <button id="stopImage" class="secondaryButton">Stop All</button>
-		   <button id="pause"><i class="fa-solid fa-pause"></i> Pause All</button>
-		   <button id="resume"><i class="fa-solid fa-play"></i> Resume</button>
+		   <button id="stopImage" class="secondaryButton">Остановить все</button>
+		   <button id="pause"><i class="fa-solid fa-pause"></i> Пауза</button>
+		   <button id="resume"><i class="fa-solid fa-play"></i> Старт</button>
 		</div>
             </div>
 
@@ -145,44 +145,46 @@
 
             <div id="editor-settings" class="settings-box panel-box">
                 <h4 class="collapsible">
-                    Image Settings
+                    Настройки изображения
                     <i id="reset-image-settings" class="fa-solid fa-arrow-rotate-left section-button">
                         <span class="simple-tooltip top-left">
-                            Reset Image Settings
+                            Сбросить настройки
                         </span>
                     </i>
                 </h4>
                 <div id="editor-settings-entries" class="collapsible-content">
                     <div><table>
-                    <tr><b class="settings-subheader">Image Settings</b></tr>
-                    <tr class="pl-5"><td><label for="seed">Seed:</label></td><td><input id="seed" name="seed" size="10" value="0" onkeypress="preventNonNumericalInput(event)" inputmode="numeric"> <input id="random_seed" name="random_seed" type="checkbox" checked><label for="random_seed">Random</label></td></tr>
-                    <tr class="pl-5"><td><label for="num_outputs_total">Number of Images:</label></td>
+                    <tr><b class="settings-subheader">Настройки изображения</b></tr>
+                    <tr class="pl-5"><td><label for="seed">Семя:</label></td><td><input id="seed" name="seed" size="10" value="0" onkeypress="preventNonNumericalInput(event)" inputmode="numeric"> <input id="random_seed" name="random_seed" type="checkbox" checked><label for="random_seed">Random</label>
+                        <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Использует генерацию псевдослучайных чисел, чтобы внести изменчивость в процесс создания изображения. Начальное значение определяет отправную точку для этой последовательности случайных чисел.</span></i>
+                    </td></tr>
+                    <tr class="pl-5"><td><label for="num_outputs_total">Кол. изображений:</label></td>
                         <td><input id="num_outputs_total" name="num_outputs_total" value="1" type="number" value="1" min="1" step="1" onkeypres"="preventNonNumericalInput(event)" inputmode="numeric">
-                        <label><small>(total)</small></label>
+                        <label><small>(всего)</small></label>
                         <input id="num_outputs_parallel" name="num_outputs_parallel" value="1" type="number" value="1" min="1" step="1" onkeypress="preventNonNumericalInput(event)" inputmode="numeric">
-                        <label id="num_outputs_parallel_label" for="num_outputs_parallel"><small>(in parallel)</small></label></td>
+                        <label id="num_outputs_parallel_label" for="num_outputs_parallel"><small>(параллельно)</small></label></td>
                     </tr>
-                    <tr class="pl-5"><td><label for="stable_diffusion_model">Model:</label></td><td class="model-input">
+                    <tr class="pl-5"><td><label for="stable_diffusion_model">Модель:</label></td><td class="model-input">
                         <input id="stable_diffusion_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
                         <button id="reload-models" class="secondaryButton reloadModels"><i class='fa-solid fa-rotate'></i></button>
-                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/Custom-Models" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Click to learn more about custom models</span></i></a>
+                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/Custom-Models" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Щелкните, чтобы узнать больше о пользовательских моделях</span></i></a>
                     </td></tr>
                     <tr class="pl-5 displayNone" id="enable_trt_config">
-                        <td><label for="convert_to_tensorrt">Enable TensorRT:</label></td>
+                        <td><label for="convert_to_tensorrt">Включить TensorRT:</label></td>
                         <td class="diffusers-restart-needed">
                             <input id="convert_to_tensorrt" name="convert_to_tensorrt" type="checkbox">
                             <!-- <label><small>Takes upto 20 mins the first time</small></label> -->
                         </td>
                     </tr>
                     <tr class="pl-5 displayNone" id="clip_skip_config">
-                        <td><label for="clip_skip">Clip Skip:</label></td>
+                        <td><label for="clip_skip">Пропуск клипа:</label></td>
                         <td class="diffusers-restart-needed">
                             <input id="clip_skip" name="clip_skip" type="checkbox">
-                            <a href="https://github.com/easydiffusion/easydiffusion/wiki/Clip-Skip" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Click to learn more about Clip Skip</span></i></a>
+                            <a href="https://github.com/easydiffusion/easydiffusion/wiki/Clip-Skip" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Если включена опция пропуска клипа, вы снижаете «точность» текстовой модели.</span></i></a>
                         </td>
                     </tr>
                     <tr id="controlnet_model_container" class="pl-5">
-                        <td><label for="controlnet_model">ControlNet Image:</label></td>
+                        <td><label for="controlnet_model">Контрольная сеть:</label></td>
                         <td class="diffusers-restart-needed">
                             <div id="control_image_wrapper" class="preview_image_wrapper">
                                 <img id="control_image_preview" class="image_preview" src="" crossorigin="anonymous" />
@@ -190,19 +192,19 @@
                                 <button class="control_image_clear image_clear_btn"><i class="fa-solid fa-xmark"></i></button>
                             </div>
                             <input id="control_image" name="control_image" type="file" />
-                            <a href="https://github.com/easydiffusion/easydiffusion/wiki/ControlNet" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Click to learn more about ControlNets</span></i></a>
+                            <a href="https://github.com/easydiffusion/easydiffusion/wiki/ControlNet" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Контрольная сеть (ControlNets) позволяют вам выбрать изображение, которое будет направлять ИИ, чтобы он точнее следовал за вашим управляющим изображением.</span></i></a>
                             <div id="controlnet_config" class="displayNone">
-                                <label><small>Filter to apply:</small></label>
+                                <label><small>Применить фильтр:</small></label>
                                 <select id="control_image_filter">
-                                    <option value="">None</option>
-                                    <optgroup label="Pose">
+                                    <option value="">Нет</option>
+                                    <optgroup label="Поза">
                                         <option value="openpose">OpenPose (*)</option>
                                         <option value="openpose_face">OpenPose face</option>
                                         <option value="openpose_faceonly">OpenPose face-only</option>
                                         <option value="openpose_hand">OpenPose hand</option>
                                         <option value="openpose_full">OpenPose full</option>
                                     </optgroup>
-                                    <optgroup label="Outline">
+                                    <optgroup label="Схема">
                                         <option value="canny">Canny (*)</option>
                                         <option value="mlsd">Straight lines</option>
                                         <option value="scribble_hed">Scribble hed (*)</option>
@@ -214,14 +216,14 @@
                                         <option value="softedge_pidinet">Softedge pidinet</option>
                                         <option value="softedge_pidsafe">Softedge pidsafe</option>
                                     </optgroup>
-                                    <optgroup label="Depth">
+                                    <optgroup label="Глубина">
                                         <option value="normal_bae">Normal bae (*)</option>
                                         <option value="depth_midas">Depth midas</option>
                                         <option value="depth_zoe">Depth zoe</option>
                                         <option value="depth_leres">Depth leres</option>
                                         <option value="depth_leres++">Depth leres++</option>
                                     </optgroup>
-                                    <optgroup label="Line art">
+                                    <optgroup label="Штрихование">
                                         <option value="lineart_coarse">Lineart coarse</option>
                                         <option value="lineart_realistic">Lineart realistic</option>
                                         <option value="lineart_anime">Lineart anime</option>
@@ -232,17 +234,17 @@
                                     </optgroup>
                                 </select>
                                 <br/>
-                                <label for="controlnet_model"><small>Model:</small></label> <input id="controlnet_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
+                                <label for="controlnet_model"><small>Модель:</small></label> <input id="controlnet_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
                                 <br/>
-                                <label><small>Will download the necessary models, the first time.</small></label>
+                                <label><small>Загрузит нужные модели, с первого раза.</small></label>
                             </div>
                         </td>
                     </tr>
-                    <tr class="pl-5"><td><label for="vae_model">Custom VAE:</label></td><td>
+                    <tr class="pl-5"><td><label for="vae_model">Пользовательский VAE:</label></td><td>
                         <input id="vae_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
-                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/VAE-Variational-Auto-Encoder" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Click to learn more about VAEs</span></i></a>
+                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/VAE-Variational-Auto-Encoder" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">VAE — это мощные инструменты, используемые вместе с моделями контрольных точек, для улучшения качества изображений, обогащения их яркими цветами и более четкими деталями.</span></i></a>
                     </td></tr>
-                    <tr id="samplerSelection" class="pl-5"><td><label for="sampler_name">Sampler:</label></td><td>
+                    <tr id="samplerSelection" class="pl-5"><td><label for="sampler_name">образец (сэмплер):</label></td><td>
                         <select id="sampler_name" name="sampler_name">
                             <option value="plms">PLMS</option>
                             <option value="ddim">DDIM</option>
@@ -266,9 +268,9 @@
                             <option value="unipc_tu_2" class="k_diffusion-only">UniPC TU 2</option>
                             <option value="unipc_tq" class="k_diffusion-only">UniPC TQ</option>
                         </select>
-                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/Samplers" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Click to learn more about samplers</span></i></a>
+                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/Samplers" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Этот процесс шумоподавления называется выборкой, поскольку ИИ генерирует новый образец изображения на каждом этапе. Метод, используемый при отборе проб, называется пробоотборником или методом выборки</span></i></a>
                     </td></tr>
-                    <tr class="pl-5"><td><label>Image Size: </label></td><td id="image-size-options">
+                    <tr class="pl-5"><td><label>Размер изображения: </label></td><td id="image-size-options">
                         <select id="width" name="width" value="512">
                             <option value="128">128</option>
                             <option value="192">192</option>
@@ -290,9 +292,9 @@
                             <option value="1792">1792</option>
                             <option value="2048">2048</option>
                         </select>
-                        <label id="widthLabel" for="width"><small><span>(width)</span></small></label>
+                        <label id="widthLabel" for="width"><small><span>(ширина)</span></small></label>
                         <div class="tooltip-container">
-                            <span id="swap-width-height" class="clickable smallButton" style="margin-left: 2px; margin-right:2px;"><i class="fa-solid fa-right-left"><span class="simple-tooltip top-left"> Swap width and height </span></i></span>
+                            <span id="swap-width-height" class="clickable smallButton" style="margin-left: 2px; margin-right:2px;"><i class="fa-solid fa-right-left"><span class="simple-tooltip top-left"> Поменять ширину с высотой </span></i></span>
                         </div>
                         <select id="height" name="height" value="512">
                             <option value="128">128</option>
@@ -315,26 +317,26 @@
                             <option value="1792">1792</option>
                             <option value="2048">2048</option>
                         </select>
-                        <label id="heightLabel" for="height"><small><span>(height)</span></small></label>
+                        <label id="heightLabel" for="height"><small><span>(высота)</span></small></label>
                         <div id="recent-resolutions-container">
-                            <span id="recent-resolutions-button" class="clickable"><i class="fa-solid fa-sliders"><span class="simple-tooltip top-left"> Advanced sizes </span></i></span>
+                            <span id="recent-resolutions-button" class="clickable"><i class="fa-solid fa-sliders"><span class="simple-tooltip top-left"> Расширенные размеры </span></i></span>
                             <div id="recent-resolutions-popup" class="displayNone">
-                                <small>Custom size:</small><br>
+                                <small>Пользовательский размер:</small><br>
                                 <input id="custom-width" name="custom-width" type="number" min="128" value="512" onkeypress="preventNonNumericalInput(event)" inputmode="numeric">
                                 &times;
                                 <input id="custom-height" name="custom-height" type="number" min="128" value="512" onkeypress="preventNonNumericalInput(event)" inputmode="numeric"><br>
-                                <small>Resize:</small><br>
+                                <small>Изменить:</small><br>
                                 <input id="resize-slider" name="resize-slider" class="editor-slider" value="1" type="range" min="0.4" max="2" step="0.005" style="width:100%;"><br>
                                 <div id="enlarge-buttons"><button data-factor="0.5" class="tertiaryButton smallButton">×0.5</button>&nbsp;<button data-factor="1.2" class="tertiaryButton smallButton">×1.2</button>&nbsp;<button data-factor="1.5" class="tertiaryButton smallButton">×1.5</button>&nbsp;<button data-factor="2" class="tertiaryButton smallButton">×2</button>&nbsp;<button data-factor="3" class="tertiaryButton smallButton">×3</button></div>
 
                                 <div class="two-column">
                                     <div class="left-column">
-                                        <small>Recently&nbsp;used:</small><br>
+                                        <small>Последний:</small><br>
                                         <div id="recent-resolution-list">
                                         </div>
                                     </div>
                                     <div class="right-column">
-                                        <small>Common&nbsp;sizes:</small><br>
+                                        <small>Общие размеры:</small><br>
                                         <div id="common-resolution-list">
                                         </div>
                                     </div>
@@ -342,10 +344,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="small_image_warning" class="displayNone">Small image sizes can cause bad image quality</div>
+                        <div id="small_image_warning" class="displayNone">Небольшие размеры изображения могут привести к ухудшению качества изображения</div>
                     </td></tr>
-                    <tr class="pl-5"><td><label for="num_inference_steps">Inference Steps:</label></td><td> <input id="num_inference_steps" name="num_inference_steps" type="number" min="1" step="1" style="width: 42pt" value="25" onkeypress="preventNonNumericalInput(event)" inputmode="numeric"></td></tr>
-                    <tr class="pl-5"><td><label for="guidance_scale_slider">Guidance Scale:</label></td><td> <input id="guidance_scale_slider" name="guidance_scale_slider" class="editor-slider" value="75" type="range" min="11" max="500"> <input id="guidance_scale" name="guidance_scale" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="decimal"></td></tr>
+                    <tr class="pl-5"><td><label for="num_inference_steps">Шаги вывода:</label></td><td> <input id="num_inference_steps" name="num_inference_steps" type="number" min="1" step="1" style="width: 42pt" value="25" onkeypress="preventNonNumericalInput(event)" inputmode="numeric">
+                        <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">
+                            Вообще говоря, чем больше шагов вы используете, тем лучшего качества вы добьетесь.
+                            <br><br>Но не стоит ставить шагов как можно выше. Все дело в результатах, которых вы пытаетесь достичь.
+                        </span></i>
+                    </td></tr>
+                    <tr class="pl-5"><td><label for="guidance_scale_slider">Шкала соответствия:</label></td><td> <input id="guidance_scale_slider" name="guidance_scale_slider" class="editor-slider" value="75" type="range" min="11" max="500"> <input id="guidance_scale" name="guidance_scale" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="decimal">
+                        <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">
+                            Отвечает за то, насколько искуственный интеллект должен приблизиться к буквальному изображению запроса.
+                            <br><br>Чем ниже "Шкала соответствия" — тем креативнее будет ИИ.
+                            <br><br>Чем выше "Шкала соответствия" тем более точно ИИ будет пытаться изобразить запрос.
+                        </span></i>
+                    </td>
                     <tr id="prompt_strength_container" class="pl-5"><td><label for="prompt_strength_slider">Prompt Strength:</label></td><td> <input id="prompt_strength_slider" name="prompt_strength_slider" class="editor-slider" value="80" type="range" min="0" max="99"> <input id="prompt_strength" name="prompt_strength" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="decimal"><br/></td></tr>
                     <tr id="lora_model_container" class="pl-5">
                         <td>
