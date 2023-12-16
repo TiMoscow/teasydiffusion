@@ -33,16 +33,16 @@ class MultiModelSelector {
     }
     set value(modelData) {
         if (typeof modelData !== "object") {
-            throw new Error("Multi-model selector expects an object containing modelNames and modelWeights as keys!")
+            throw new Error("Multi-model селектор ожидает объект, содержащий имена моделей и веса моделей в качестве ключей!")
         }
         if (!("modelNames" in modelData) || !("modelWeights" in modelData)) {
-            throw new Error("modelNames or modelWeights not present in the data passed to the multi-model selector")
+            throw new Error("Имена моделей или веса моделей отсутствуют в данных, переданных селектору multi-model")
         }
 
         let newModelNames = modelData["modelNames"]
         let newModelWeights = modelData["modelWeights"]
         if (newModelNames.length !== newModelWeights.length) {
-            throw new Error("Need to pass an equal number of modelNames and modelWeights!")
+            throw new Error("Необходимо передать равное количество имен моделей и весов моделей!")
         }
 
         // update weight first, name second.
@@ -114,7 +114,7 @@ class MultiModelSelector {
 
         this.addNewButton = document.createElement("button")
         this.addNewButton.className = "add_model_entry"
-        this.addNewButton.innerHTML = '<i class="fa-solid fa-plus"></i> add another ' + this.modelNameFriendly
+        this.addNewButton.innerHTML = '<i class="fa-solid fa-plus"></i> добавить еще ' + this.modelNameFriendly
         this.addNewButton.addEventListener("click", this.bind(this.addModelEntry, this))
         this.root.appendChild(this.addNewButton)
     }

@@ -40,7 +40,7 @@
         </div>
         <div id="server-status">
             <div id="server-status-color">●</div>
-            <span id="server-status-msg">Стартует Stable Diffusion..</span>
+            <span id="server-status-msg">Стартует..</span>
         </div>
         <div id="tab-container" class="tab-container">
             <span id="tab-main" class="tab active">
@@ -64,8 +64,9 @@
                         <div id="prompt-toolbar-left" class="toolbar-left">
                             <label for="prompt"><b>Введите «Запрос»</b>
                                 <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip right">
-                                    Запросы можно ввести в приведенное ниже текстовое поле или загрузить их из файла.
-                                    Вы также можете предзагрузить запросы из пресетов, встроенных в образы PNG, WEBP и JPEG (включить встраивание из параметров).
+                                    Запросы можно ввести в приведенное ниже текстовое поле или загрузить их из файла.<br>
+                                    Вы также можете предзагрузить запросы из пресетов,
+                                    встроенных в образы PNG, WEBP и JPEG (включить встраивание из параметров).
                                 </span></i>
                             </label>
                             <small>или</small>
@@ -80,7 +81,7 @@
                     <input id="prompt_from_file" name="prompt_from_file" type="file" /> <!-- hidden -->
                     <label for="negative_prompt" class="collapsible" id="negative_prompt_handle">
                         Отрицательный запрос
-                        <a href="https://yandex.ru/search/?text=Click+to+learn+more+about+Negative+Prompts" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top">Щелкните, чтобы узнать больше о негативных запросах (сейчас недоступно)</span></i></a>
+                        <a href="https://yandex.ru/search/?text=Click+to+learn+more+about+Negative+Prompts" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip right">Щелкните, чтобы узнать больше о негативных запросах (сейчас недоступно)</span></i></a>
                         <small>(на выбор)</small>
                     </label>
                     <button id="negative-embeddings-button" class="tertiaryButton smallButton displayNone">+ Отрицательные пресеты</button>
@@ -91,7 +92,7 @@
 
                 <div id="editor-inputs-init-image" class="row">
                     <label for="init_image">Исходное изображение <small>(на выбор)</small> </label>
-                    <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top">
+                    <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip right">
                         Добавление исходного изображения с помощью кнопки «Обзор» путем перетаскивания из внешнего файла или изображения браузера
                         (включая визуализированное изображение) или путем вставки изображения из буфера обмена с помощью клавиш Ctrl + V.<br /><br />
                         Также можно предзагрузить пресеты, встроенные в образ PNG, WEBP или JPEG.
@@ -129,7 +130,7 @@
                 </div>
 
                 <div id="editor-inputs-tags-container" class="row">
-                    <label>Image Modifiers <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip right">Щелкните модификатор изображения, чтобы удалить его, щелкните правой кнопкой мыши, чтобы временно отключить его, и с помощью клавиш Ctrl + Колесо мыши для регулировки</span></i></label>
+                    <label>Модификаторы изображений <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip right">Щелкните модификатор изображения, чтобы удалить его, щелкните правой кнопкой мыши, чтобы временно отключить его, и с помощью клавиш Ctrl + Колесо мыши для регулировки</span></i></label>
                     <div id="editor-inputs-tags-list"></div>
                 </div>
 
@@ -147,7 +148,7 @@
                 <h4 class="collapsible">
                     Настройки изображения
                     <i id="reset-image-settings" class="fa-solid fa-arrow-rotate-left section-button">
-                        <span class="simple-tooltip top-left">
+                        <span class="simple-tooltip top-right">
                             Сбросить настройки
                         </span>
                     </i>
@@ -155,8 +156,8 @@
                 <div id="editor-settings-entries" class="collapsible-content">
                     <div><table>
                     <tr><b class="settings-subheader">Настройки изображения</b></tr>
-                    <tr class="pl-5"><td><label for="seed">Семя:</label></td><td><input id="seed" name="seed" size="10" value="0" onkeypress="preventNonNumericalInput(event)" inputmode="numeric"> <input id="random_seed" name="random_seed" type="checkbox" checked><label for="random_seed">Random</label>
-                        <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Использует генерацию псевдослучайных чисел, чтобы внести изменчивость в процесс создания изображения. Начальное значение определяет отправную точку для этой последовательности случайных чисел.</span></i>
+                    <tr class="pl-5"><td><label for="seed">Семя:</label></td><td><input id="seed" name="seed" size="10" value="0" onkeypress="preventNonNumericalInput(event)" inputmode="numeric"> <input id="random_seed" name="random_seed" type="checkbox" checked><label for="random_seed">Случайный</label>
+                        <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">Использует генерацию псевдослучайных чисел, чтобы внести изменчивость в процесс создания изображения. Начальное значение определяет отправную точку для этой последовательности случайных чисел.</span></i>
                     </td></tr>
                     <tr class="pl-5"><td><label for="num_outputs_total">Кол. изображений:</label></td>
                         <td><input id="num_outputs_total" name="num_outputs_total" value="1" type="number" value="1" min="1" step="1" onkeypres"="preventNonNumericalInput(event)" inputmode="numeric">
@@ -167,7 +168,7 @@
                     <tr class="pl-5"><td><label for="stable_diffusion_model">Модель:</label></td><td class="model-input">
                         <input id="stable_diffusion_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
                         <button id="reload-models" class="secondaryButton reloadModels"><i class='fa-solid fa-rotate'></i></button>
-                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/Custom-Models" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Щелкните, чтобы узнать больше о пользовательских моделях</span></i></a>
+                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/Custom-Models" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">Щелкните, чтобы узнать больше о пользовательских моделях</span></i></a>
                     </td></tr>
                     <tr class="pl-5 displayNone" id="enable_trt_config">
                         <td><label for="convert_to_tensorrt">Включить TensorRT:</label></td>
@@ -180,7 +181,7 @@
                         <td><label for="clip_skip">Пропуск клипа:</label></td>
                         <td class="diffusers-restart-needed">
                             <input id="clip_skip" name="clip_skip" type="checkbox">
-                            <a href="https://github.com/easydiffusion/easydiffusion/wiki/Clip-Skip" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Если включена опция пропуска клипа, вы снижаете «точность» текстовой модели.</span></i></a>
+                            <a href="https://github.com/easydiffusion/easydiffusion/wiki/Clip-Skip" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">Если включена опция пропуска клипа, вы снижаете «точность» текстовой модели.</span></i></a>
                         </td>
                     </tr>
                     <tr id="controlnet_model_container" class="pl-5">
@@ -192,7 +193,7 @@
                                 <button class="control_image_clear image_clear_btn"><i class="fa-solid fa-xmark"></i></button>
                             </div>
                             <input id="control_image" name="control_image" type="file" />
-                            <a href="https://github.com/easydiffusion/easydiffusion/wiki/ControlNet" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Контрольная сеть (ControlNets) позволяют вам выбрать изображение, которое будет направлять ИИ, чтобы он точнее следовал за вашим управляющим изображением.</span></i></a>
+                            <a href="https://github.com/easydiffusion/easydiffusion/wiki/ControlNet" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">Контрольная сеть (ControlNets) позволяют вам выбрать изображение, которое будет направлять ИИ, чтобы он точнее следовал за вашим управляющим изображением.</span></i></a>
                             <div id="controlnet_config" class="displayNone">
                                 <label><small>Применить фильтр:</small></label>
                                 <select id="control_image_filter">
@@ -242,7 +243,7 @@
                     </tr>
                     <tr class="pl-5"><td><label for="vae_model">Пользовательский VAE:</label></td><td>
                         <input id="vae_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" />
-                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/VAE-Variational-Auto-Encoder" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">VAE — это мощные инструменты, используемые вместе с моделями контрольных точек, для улучшения качества изображений, обогащения их яркими цветами и более четкими деталями.</span></i></a>
+                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/VAE-Variational-Auto-Encoder" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">VAE — это мощные инструменты, используемые вместе с моделями контрольных точек, для улучшения качества изображений, обогащения их яркими цветами и более четкими деталями.</span></i></a>
                     </td></tr>
                     <tr id="samplerSelection" class="pl-5"><td><label for="sampler_name">образец (сэмплер):</label></td><td>
                         <select id="sampler_name" name="sampler_name">
@@ -268,7 +269,7 @@
                             <option value="unipc_tu_2" class="k_diffusion-only">UniPC TU 2</option>
                             <option value="unipc_tq" class="k_diffusion-only">UniPC TQ</option>
                         </select>
-                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/Samplers" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Этот процесс шумоподавления называется выборкой, поскольку ИИ генерирует новый образец изображения на каждом этапе. Метод, используемый при отборе проб, называется пробоотборником или методом выборки</span></i></a>
+                        <a href="https://github.com/easydiffusion/easydiffusion/wiki/Samplers" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">Этот процесс шумоподавления называется выборкой, поскольку ИИ генерирует новый образец изображения на каждом этапе. Метод, используемый при отборе проб, называется пробоотборником или методом выборки</span></i></a>
                     </td></tr>
                     <tr class="pl-5"><td><label>Размер изображения: </label></td><td id="image-size-options">
                         <select id="width" name="width" value="512">
@@ -294,7 +295,7 @@
                         </select>
                         <label id="widthLabel" for="width"><small><span>(ширина)</span></small></label>
                         <div class="tooltip-container">
-                            <span id="swap-width-height" class="clickable smallButton" style="margin-left: 2px; margin-right:2px;"><i class="fa-solid fa-right-left"><span class="simple-tooltip top-left"> Поменять ширину с высотой </span></i></span>
+                            <span id="swap-width-height" class="clickable smallButton" style="margin-left: 2px; margin-right:2px;"><i class="fa-solid fa-right-left"><span class="simple-tooltip top-right"> Поменять ширину с высотой </span></i></span>
                         </div>
                         <select id="height" name="height" value="512">
                             <option value="128">128</option>
@@ -319,7 +320,7 @@
                         </select>
                         <label id="heightLabel" for="height"><small><span>(высота)</span></small></label>
                         <div id="recent-resolutions-container">
-                            <span id="recent-resolutions-button" class="clickable"><i class="fa-solid fa-sliders"><span class="simple-tooltip top-left"> Расширенные размеры </span></i></span>
+                            <span id="recent-resolutions-button" class="clickable"><i class="fa-solid fa-sliders"><span class="simple-tooltip top-right"> Расширенные размеры </span></i></span>
                             <div id="recent-resolutions-popup" class="displayNone">
                                 <small>Пользовательский размер:</small><br>
                                 <input id="custom-width" name="custom-width" type="number" min="128" value="512" onkeypress="preventNonNumericalInput(event)" inputmode="numeric">
@@ -347,25 +348,27 @@
                         <div id="small_image_warning" class="displayNone">Небольшие размеры изображения могут привести к ухудшению качества изображения</div>
                     </td></tr>
                     <tr class="pl-5"><td><label for="num_inference_steps">Шаги вывода:</label></td><td> <input id="num_inference_steps" name="num_inference_steps" type="number" min="1" step="1" style="width: 42pt" value="25" onkeypress="preventNonNumericalInput(event)" inputmode="numeric">
-                        <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">
+                        <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">
                             Вообще говоря, чем больше шагов вы используете, тем лучшего качества вы добьетесь.
                             <br><br>Но не стоит ставить шагов как можно выше. Все дело в результатах, которых вы пытаетесь достичь.
                         </span></i>
                     </td></tr>
                     <tr class="pl-5"><td><label for="guidance_scale_slider">Шкала соответствия:</label></td><td> <input id="guidance_scale_slider" name="guidance_scale_slider" class="editor-slider" value="75" type="range" min="11" max="500"> <input id="guidance_scale" name="guidance_scale" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="decimal">
-                        <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">
+                        <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">
                             Отвечает за то, насколько искуственный интеллект должен приблизиться к буквальному изображению запроса.
                             <br><br>Чем ниже "Шкала соответствия" — тем креативнее будет ИИ.
                             <br><br>Чем выше "Шкала соответствия" тем более точно ИИ будет пытаться изобразить запрос.
                         </span></i>
                     </td>
-                    <tr id="prompt_strength_container" class="pl-5"><td><label for="prompt_strength_slider">Prompt Strength:</label></td><td> <input id="prompt_strength_slider" name="prompt_strength_slider" class="editor-slider" value="80" type="range" min="0" max="99"> <input id="prompt_strength" name="prompt_strength" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="decimal"><br/></td></tr>
+                    <tr id="prompt_strength_container" class="pl-5"><td><label for="prompt_strength_slider">Сила ключевого слова:</label></td><td> <input id="prompt_strength_slider" name="prompt_strength_slider" class="editor-slider" value="80" type="range" min="0" max="99"> <input id="prompt_strength" name="prompt_strength" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="decimal"><br/></td></tr>
                     <tr id="lora_model_container" class="pl-5">
                         <td>
                             <label for="lora_model">LoRA:</label>
                         </td>
                         <td class="diffusers-restart-needed">
                             <div id="lora_model" data-path=""></div>
+                            <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">LoRA (Low Rank Adaptation) — это небольшие модели, которые помогают основным модели восполнить пробелы, связанные с различными аспектами генерации изображений.</span></i>
+
                         </td>
                     </tr>
                     <tr id="hypernetwork_model_container" class="pl-5"><td><label for="hypernetwork_model">Hypernetwork:</label></td><td>
@@ -376,18 +379,18 @@
                         <td> <input id="hypernetwork_strength_slider" name="hypernetwork_strength_slider" class="editor-slider" value="100" type="range" min="0" max="100"> <input id="hypernetwork_strength" name="hypernetwork_strength" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="decimal"><br/></td>
                     </tr>
                     <tr id="tiling_container" class="pl-5">
-                        <td><label for="tiling">Seamless Tiling:</label></td>
+                        <td><label for="tiling">Бесшовная переход:</label></td>
                         <td class="diffusers-restart-needed">
                             <select id="tiling" name="tiling">
                                 <option value="none" selected>None</option>
-                                <option value="x">Horizontal</option>
-                                <option value="y">Vertical</option>
-                                <option value="xy">Both</option>
+                                <option value="x">Горизонтальный</option>
+                                <option value="y">Вертикальный</option>
+                                <option value="xy">С обеих сторон</option>
                             </select>
-                            <a href="https://github.com/easydiffusion/easydiffusion/wiki/Seamless-Tiling" target="_blank"><i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">Click to learn more about Seamless Tiling</span></i></a>
+                            <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">Бесшовная переход представляет собой технику создания визуально непрерывного рисунка, который может повторяться бесконечно без каких-либо заметных швов или границ между плитками.</span></i>
                         </td>
                     </tr>
-                    <tr class="pl-5"><td><label for="output_format">Output Format:</label></td><td>
+                    <tr class="pl-5"><td><label for="output_format">Выходной формат:</label></td><td>
                         <select id="output_format" name="output_format">
                             <option value="jpeg" selected>jpeg</option>
                             <option value="png">png</option>
@@ -397,28 +400,28 @@
                             <input id="output_lossless" name="output_lossless" type="checkbox"><label for="output_lossless">Lossless</label>
                         </span>
                     </td></tr>
-                    <tr class="pl-5" id="output_quality_row"><td><label for="output_quality">Image Quality:</label></td><td>
+                    <tr class="pl-5" id="output_quality_row"><td><label for="output_quality">Качество изображения:</label></td><td>
                     <input id="output_quality_slider" name="output_quality" class="editor-slider" value="75" type="range" min="10" max="95"> <input id="output_quality" name="output_quality" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="numeric">
                     </td></tr>
                     </table></div>
 
                     <div><ul>
-                    <li><b class="settings-subheader">Render Settings</b></li>
-                    <li class="pl-5"><input id="stream_image_progress" name="stream_image_progress" type="checkbox"> <label for="stream_image_progress">Show a live preview <small>(uses more VRAM, slower images)</small></label></li>
+                    <li><b class="settings-subheader">Параметры визуализации</b></li>
+                    <li class="pl-5"><input id="stream_image_progress" name="stream_image_progress" type="checkbox"> <label for="stream_image_progress">Показать просмотр в реальном времени <small>(использует больше видеопамяти, долгое создание изображений)</small></label></li>
                     <li class="pl-5" id="use_face_correction_container">
-                        <input id="use_face_correction" name="use_face_correction" type="checkbox"> <label for="use_face_correction">Fix incorrect faces and eyes</label> <div style="display:inline-block;"><input id="gfpgan_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" /></div>
+                        <input id="use_face_correction" name="use_face_correction" type="checkbox"> <label for="use_face_correction">Исправить лица и глаза</label> <div style="display:inline-block;"><input id="gfpgan_model" type="text" spellcheck="false" autocomplete="off" class="model-filter" data-path="" /></div>
                         <table id="codeformer_settings" class="displayNone sub-settings">
-                            <tr class="pl-5"><td><label for="codeformer_fidelity_slider">Strength:</label></td><td><input id="codeformer_fidelity_slider" name="codeformer_fidelity_slider" class="editor-slider" value="5" type="range" min="0" max="10"> <input id="codeformer_fidelity" name="codeformer_fidelity" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="decimal"></td></tr>
-                            <tr class="pl-5"><td><label for="codeformer_upscale_faces">Upscale Faces:</label></td><td><input id="codeformer_upscale_faces" name="codeformer_upscale_faces" type="checkbox" checked> <label><small>(improves the resolution of faces)</small></label></td></tr>
+                            <tr class="pl-5"><td><label for="codeformer_fidelity_slider">Прочность:</label></td><td><input id="codeformer_fidelity_slider" name="codeformer_fidelity_slider" class="editor-slider" value="5" type="range" min="0" max="10"> <input id="codeformer_fidelity" name="codeformer_fidelity" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="decimal"></td></tr>
+                            <tr class="pl-5"><td><label for="codeformer_upscale_faces">Четкие лица:</label></td><td><input id="codeformer_upscale_faces" name="codeformer_upscale_faces" type="checkbox" checked> <label><small>(improves the resolution of faces)</small></label></td></tr>
                         </table>
                     </li>
                     <li class="pl-5">
-                        <input id="use_upscale" name="use_upscale" type="checkbox"> <label for="use_upscale">Scale up by</label> 
+                        <input id="use_upscale" name="use_upscale" type="checkbox"> <label for="use_upscale">Масштабирование по</label>
                         <select id="upscale_amount" name="upscale_amount">
                             <option id="upscale_amount_2x" value="2">2x</option>
                             <option id="upscale_amount_4x" value="4" selected>4x</option>
                         </select>
-                        with 
+                        с
                         <select id="upscale_model" name="upscale_model">
                             <option value="RealESRGAN_x4plus" selected>RealESRGAN_x4plus</option>
                             <option value="RealESRGAN_x4plus_anime_6B">RealESRGAN_x4plus_anime_6B</option>
@@ -428,12 +431,12 @@
                             <tr class="pl-5"><td><label for="latent_upscaler_steps_slider">Upscaling Steps:</label></td><td><input id="latent_upscaler_steps_slider" name="latent_upscaler_steps_slider" class="editor-slider" value="10" type="range" min="1" max="50"> <input id="latent_upscaler_steps" name="latent_upscaler_steps" size="4" pattern="^[0-9\.]+$" onkeypress="preventNonNumericalInput(event)" inputmode="numeric"></td></tr>
                         </table>
                     </li>
-                    <li class="pl-5"><input id="show_only_filtered_image" name="show_only_filtered_image" type="checkbox" checked> <label for="show_only_filtered_image">Show only the corrected/upscaled image</label></li>
+                    <li class="pl-5"><input id="show_only_filtered_image" name="show_only_filtered_image" type="checkbox" checked> <label for="show_only_filtered_image">Показывать только исправленное изображение/изображение с увеличенным масштабом</label></li>
                     </ul></div>
                 </div>
             </div>
 
-            <label><small><b>Note:</b> The Image Modifiers section has moved to the <code>+ Image Modifiers</code> button at the top, just above the Prompt textbox.</small></label>
+            <label class="displayNone"><small><b>Note:</b> The Image Modifiers section has moved to the <code>+ Image Modifiers</code> button at the top, just above the Prompt textbox.</small></label>
         </div>
 
         <div id="preview" class="col-free">
@@ -512,7 +515,7 @@
                             <tr><td><label>Compatible Graphics Cards (all):</label></td><td id="system-info-gpus-all" class="value"></td></tr>
                             <tr><td></td><td>&nbsp;</td></tr>
                             <tr><td><label>Used for rendering 🔥:</label></td><td id="system-info-rendering-devices" class="value"></td></tr>
-                            <tr><td><label>Server Addresses <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-left">You can access Stable Diffusion UI from other devices using these addresses</span></i> :</label></td><td id="system-info-server-hosts" class="value"></td></tr>
+                            <tr><td><label>Server Addresses <i class="fa-solid fa-circle-question help-btn"><span class="simple-tooltip top-right">You can access Stable Diffusion UI from other devices using these addresses</span></i> :</label></td><td id="system-info-server-hosts" class="value"></td></tr>
                         </table>
                     </div>
                 </div>
@@ -659,8 +662,8 @@
     <div id="save-settings-config" class="popup">
         <div>
             <i class="close-button fa-solid fa-xmark"></i>
-            <h1>Save Settings Configuration</h1>
-            <p>Select which settings should be remembered when restarting the browser</p>
+            <h1>Сохранить настройки конфигурацииn</h1>
+            <p>Выберите, какие параметры следует запомнить при перезапуске браузера</p>
             <table id="save-settings-config-table" class="form-table">
             </table>
         </div>
@@ -669,13 +672,13 @@
     <div id="editor-modifiers">
         <div id="editor-modifiers-header" class="dialog-header">
             <div id="modifiers-header-left" class="dialog-header-left">
-                <h4>Image Modifiers</h4>
-                <span>(drawing style, camera, etc.)</span>
+                <h4>Модификаторы изображений</h4>
+                <span>(стиль чертежа, камера, и т.д.)</span>
             </div>
             <div id="modifiers-header-right">
                 <i id="modifier-settings-btn" class="fa-solid fa-gear section-button">
                     <span class="simple-tooltip left">
-                        Add Custom Modifiers
+                        Добавление пользовательских модификаторов
                     </span>
                 </i>
                 <i id="modifiers-container-size-btn" class="fa-solid fa-expand"></i>
@@ -726,10 +729,10 @@
     <dialog id="embeddings-dialog">
         <div id="embeddings-dialog-header" class="dialog-header">
             <div id="embeddings-dialog-header-left" class="dialog-header-left">
-                <h4>Embeddings</h4>
+                <h4>вложения</h4>
                 <span>
-                    <span class="displayNone" id="positive-embedding-text"> Add embeddings to the prompt (click) or negative prompt (shift-click)</span>
-                    <span class="displayNone" id="negative-embedding-text"> Add embeddings to the negative prompt</span>
+                    <span class="displayNone" id="positive-embedding-text"> Добавление вложений в подсказку (клик) или отрицательную подсказку (клик + Shift)</span>
+                    <span class="displayNone" id="negative-embedding-text"> Добавление внедрений в отрицательный запрос</span>
                 <span>
             </div>
             <div id="embeddings-dialog-header-right">
@@ -824,11 +827,11 @@
     <div id="footer-spacer"></div>
     <div id="footer">
         <div class="line-separator">&nbsp;</div>
-        <p>Please feel free to join the <a href="https://discord.com/invite/u9yhsFmEkB" target="_blank">discord community</a> or <a href="https://github.com/easydiffusion/easydiffusion/issues" target="_blank">file an issue</a> if you have any problems or suggestions in using this interface.</p>
+
         <div id="footer-legal">
-            <p><b>Disclaimer:</b> The authors of this project are not responsible for any content generated using this interface.</p>
-            <p>This license of this software forbids you from sharing any content that violates any laws, produce any harm to a person, disseminate any personal information that would be meant for harm, <br/>spread misinformation and target vulnerable groups. For the full list of restrictions please read <a href="https://github.com/easydiffusion/easydiffusion/blob/main/LICENSE" target="_blank">the license</a>.</p>
-            <p>By using this software, you consent to the terms and conditions of the license.</p>
+            <p><b>Отказ от ответственности:</b> Авторы этого проекта не несут ответственности за любой контент, сгенерированный с помощью этого интерфейса.</p>
+            <p>Эта лицензия на это программное обеспечение запрещает вам делиться любым контентом, который нарушает какие-либо законы, причиняет какой-либо вред человеку, <br> распространяет любую личную информацию, которая может быть предназначена для причинения вреда, <br> распространяет дезинформацию и ориентируется на уязвимые группы.</p>
+            <p>Используя это программное обеспечение, вы соглашаетесь с условиями лицензии.</p>
         </div>
         <input id="test_diffusers" type="checkbox" style="display: none" checked />
     </div>

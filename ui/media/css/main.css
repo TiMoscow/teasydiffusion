@@ -1200,7 +1200,8 @@ input::file-selector-button {
     opacity: 0;
     position: absolute;
     width: max-content;
-    max-width: 300px;
+    /*max-width: max-content;*/
+    max-width: 500px;
     padding: 8px 12px;
     transition: 0.3s all;
     z-index: 1000;

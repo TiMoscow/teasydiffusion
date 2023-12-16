@@ -731,7 +731,7 @@ function checkReadTextClipboardPermission(result) {
     // PASTE ICON
     const pasteIcon = document.createElement("i")
     pasteIcon.className = "fa-solid fa-paste section-button"
-    pasteIcon.innerHTML = `<span class="simple-tooltip top-left">Paste Image Settings</span>`
+    pasteIcon.innerHTML = `<span class="simple-tooltip top-left">Вставить параметры изображения</span>`
     pasteIcon.addEventListener("click", async (event) => {
         event.stopPropagation()
         // Add css class 'active'
@@ -773,7 +773,7 @@ function checkWriteToClipboardPermission(result) {
     // COPY ICON
     const copyIcon = document.createElement("i")
     copyIcon.className = "fa-solid fa-clipboard section-button"
-    copyIcon.innerHTML = `<span class="simple-tooltip top-left">Copy Image Settings</span>`
+    copyIcon.innerHTML = `<span class="simple-tooltip top-left">Копировать параметры изображения</span>`
     copyIcon.addEventListener("click", (event) => {
         event.stopPropagation()
         // Add css class 'active'

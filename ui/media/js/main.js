@@ -281,17 +281,20 @@ function setServerStatus(event) {
         case "online":
             serverStatusColor.style.color = "var(--status-green)"
             serverStatusMsg.style.color = "var(--status-green)"
-            serverStatusMsg.innerText = "Stable Diffusion " + event.message
+            // serverStatusMsg.innerText = "Stable Diffusion " + event.message
+            serverStatusMsg.innerText = event.message
             break
         case "busy":
             serverStatusColor.style.color = "var(--status-orange)"
             serverStatusMsg.style.color = "var(--status-orange)"
-            serverStatusMsg.innerText = "Stable Diffusion " + event.message
+            // serverStatusMsg.innerText = "Stable Diffusion " + event.message
+            serverStatusMsg.innerText = event.message
             break
         case "error":
             serverStatusColor.style.color = "var(--status-red)"
             serverStatusMsg.style.color = "var(--status-red)"
-            serverStatusMsg.innerText = "Stable Diffusion остановлен"
+            // serverStatusMsg.innerText = "Stable Diffusion остановлен"
+            serverStatusMsg.innerText = "остановлен"
             break
     }
     if (SD.serverState.devices) {
@@ -313,7 +316,7 @@ function setServerStatus(event) {
 function shiftOrConfirm(e, prompt, fn, allowSkip = true) {
     e.stopPropagation()
     let tip = allowSkip
-        ? '<small>Tip: To skip this dialog, use shift-click or disable the "Confirm dangerous actions" setting in the Settings tab.</small>'
+        ? '<small>Совет: Чтобы пропустить этот диалог, используйте shift-клик.</small>'
         : ""
     if (allowSkip && (e.shiftKey || !confirmDangerousActionsField.checked)) {
         fn(e)
@@ -489,11 +492,11 @@ function showImages(reqBody, res, outputContainer, livePreview) {
             const imageUndoBuffer = []
             const imageRedoBuffer = []
             let buttons = [
-                { text: "Use as Input", on_click: onUseAsInputClick },
-                { text: "Use for Controlnet", on_click: onUseForControlnetClick },
+                { text: "В качестве входных данных", on_click: onUseAsInputClick },
+                { text: "Использовать для Controlnet", on_click: onUseForControlnetClick },
                 [
                     {
-                        html: '<i class="fa-solid fa-download"></i> Download Image',
+                        html: '<i class="fa-solid fa-download"></i> Скачать катринку',
                         on_click: onDownloadImageClick,
                         class: "download-img",
                     },
@@ -503,13 +506,13 @@ function showImages(reqBody, res, outputContainer, livePreview) {
                         class: "download-json",
                     },
                 ],
-                { text: "Make Similar Images", on_click: onMakeSimilarClick },
-                { text: "Draw another 25 steps", on_click: onContinueDrawingClick },
+                { text: "Сделать похожие изображения", on_click: onMakeSimilarClick },
+                { text: "Создать еще через 25 шагов", on_click: onContinueDrawingClick },
                 [
                     { html: '<i class="fa-solid fa-undo"></i> Undo', on_click: onUndoFilter },
                     { html: '<i class="fa-solid fa-redo"></i> Redo', on_click: onRedoFilter },
-                    { text: "Upscale", on_click: onUpscaleClick },
-                    { text: "Fix Faces", on_click: onFixFacesClick },
+                    { text: "высококлассный", on_click: onUpscaleClick },
+                    { text: "Исправить лица", on_click: onFixFacesClick },
                 ],
                 { 
                     text: "Use as Thumbnail",
@@ -982,7 +985,7 @@ function onUpscaleClick(req, img, e, tools) {
 function onFixFacesClick(req, img, e, tools) {
     let path = gfpganModelField.value
     let filterName = path.toLowerCase().includes("gfpgan") ? "gfpgan" : "codeformer"
-    let statusText = "Fixing faces with " + filterName
+    let statusText = "Исправляем лица с " + filterName
     applyInlineFilter(filterName, path, {}, img, statusText, tools)
 }
 
@@ -1232,7 +1235,7 @@ function createTask(task) {
         e.stopPropagation()
 
         if (task["isProcessing"]) {
-            shiftOrConfirm(e, "Stop this task?", async function(e) {
+            shiftOrConfirm(e, "Остановить эту задачу?", async function(e) {
                 if (task.batchesDone <= 0 || !task.isProcessing) {
                     removeTask(taskEntry)
                 }
