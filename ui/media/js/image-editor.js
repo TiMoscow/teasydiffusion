@@ -4,14 +4,14 @@ const IMAGE_EDITOR_MAX_SIZE = 800
 
 const IMAGE_EDITOR_BUTTONS = [
     {
-        name: "Cancel",
+        name: "Отмена",
         icon: "fa-regular fa-circle-xmark",
         handler: (editor) => {
             editor.hide()
         },
     },
     {
-        name: "Save",
+        name: "Сохранить",
         icon: "fa-solid fa-floppy-disk",
         handler: (editor) => {
             editor.saveImage()
@@ -41,7 +41,7 @@ const toolDoNothing = (editor, ctx, x, y, is_overlay = false) => {}
 const IMAGE_EDITOR_TOOLS = [
     {
         id: "draw",
-        name: "Draw",
+        name: "Рисовать",
         icon: "fa-solid fa-pencil",
         cursor: "url(/media/images/fa-pencil.svg) 0 24, pointer",
         begin: defaultToolBegin,
@@ -51,7 +51,7 @@ const IMAGE_EDITOR_TOOLS = [
     },
     {
         id: "erase",
-        name: "Erase",
+        name: "Стереть",
         icon: "fa-solid fa-eraser",
         cursor: "url(/media/images/fa-eraser.svg) 0 14, pointer",
         begin: defaultToolBegin,
@@ -82,7 +82,7 @@ const IMAGE_EDITOR_TOOLS = [
     },
     {
         id: "fill",
-        name: "Fill",
+        name: "Заливка",
         icon: "fa-solid fa-fill",
         cursor: "url(/media/images/fa-fill.svg) 20 6, pointer",
         begin: (editor, ctx, x, y, is_overlay = false) => {
@@ -98,7 +98,7 @@ const IMAGE_EDITOR_TOOLS = [
     },
     {
         id: "colorpicker",
-        name: "Picker",
+        name: "Пипетка",
         icon: "fa-solid fa-eye-dropper",
         cursor: "url(/media/images/fa-eye-dropper.svg) 0 24, pointer",
         begin: (editor, ctx, x, y, is_overlay = false) => {
@@ -123,7 +123,7 @@ const IMAGE_EDITOR_TOOLS = [
 const IMAGE_EDITOR_ACTIONS = [
     {
         id: "load_mask",
-        name: "Load mask from file",
+        name: "Загрузить маску из файла",
         className: "load_mask",
         icon: "fa-regular fa-folder-open",
         handler: (editor) => {
@@ -159,7 +159,7 @@ const IMAGE_EDITOR_ACTIONS = [
     },
     {
         id: "fill_all",
-        name: "Fill all",
+        name: "Заливка всего",
         icon: "fa-solid fa-paint-roller",
         handler: (editor) => {
             editor.ctx_current.globalCompositeOperation = "source-over"
@@ -171,7 +171,7 @@ const IMAGE_EDITOR_ACTIONS = [
     },
     {
         id: "clear",
-        name: "Clear",
+        name: "Очищать",
         icon: "fa-solid fa-xmark",
         handler: (editor) => {
             editor.ctx_current.clearRect(0, 0, editor.width, editor.height)
@@ -181,7 +181,7 @@ const IMAGE_EDITOR_ACTIONS = [
     },
     {
         id: "undo",
-        name: "Undo",
+        name: "Отменить",
         icon: "fa-solid fa-rotate-left",
         handler: (editor) => {
             editor.history.undo()
@@ -190,7 +190,7 @@ const IMAGE_EDITOR_ACTIONS = [
     },
     {
         id: "redo",
-        name: "Redo",
+        name: "Повторить",
         icon: "fa-solid fa-rotate-right",
         handler: (editor) => {
             editor.history.redo()
@@ -202,7 +202,7 @@ const IMAGE_EDITOR_ACTIONS = [
 var IMAGE_EDITOR_SECTIONS = [
     {
         name: "tool",
-        title: "Tool",
+        title: "Инструменты",
         default: "draw",
         options: Array.from(IMAGE_EDITOR_TOOLS.map((t) => t.id)),
         initElement: (element, option) => {
@@ -221,7 +221,7 @@ var IMAGE_EDITOR_SECTIONS = [
     },
     {
         name: "color",
-        title: "Color",
+        title: "Цвет",
         default: "#f1c232",
         options: [
             "custom",
@@ -272,7 +272,7 @@ var IMAGE_EDITOR_SECTIONS = [
                 input.type = "color"
                 element.appendChild(input)
                 var span = document.createElement("span")
-                span.textContent = "Custom"
+                span.textContent = "Свой"
                 span.onclick = function(e) {
                     input.click()
                 }
@@ -288,7 +288,7 @@ var IMAGE_EDITOR_SECTIONS = [
     },
     {
         name: "brush_size",
-        title: "Brush Size",
+        title: "Размер кисти",
         default: 48,
         options: [6, 12, 16, 24, 30, 40, 48, 64],
         initElement: (element, option) => {
@@ -301,7 +301,7 @@ var IMAGE_EDITOR_SECTIONS = [
     },
     {
         name: "opacity",
-        title: "Opacity",
+        title: "Прозрачность",
         default: 0,
         options: [0, 0.2, 0.4, 0.6, 0.8],
         initElement: (element, option) => {
@@ -310,7 +310,7 @@ var IMAGE_EDITOR_SECTIONS = [
     },
     {
         name: "sharpness",
-        title: "Sharpness",
+        title: "Точность",
         default: 0,
         options: [0, 0.05, 0.1, 0.2, 0.3],
         initElement: (element, option) => {
@@ -521,7 +521,7 @@ class ImageEditor {
         })
         var actionsContainer = document.createElement("div")
         var actionsTitle = document.createElement("h4")
-        actionsTitle.textContent = "Actions"
+        actionsTitle.textContent = "Действия"
         actionsContainer.appendChild(actionsTitle)
         IMAGE_EDITOR_ACTIONS.forEach((action) => {
             var element = document.createElement("div")
