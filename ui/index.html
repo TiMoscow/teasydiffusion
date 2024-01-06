@@ -443,7 +443,7 @@
                 </div>
             </div>
 
-            <label class="displayNone"><small><b>Note:</b> The Image Modifiers section has moved to the <code>+ Image Modifiers</code> button at the top, just above the Prompt textbox.</small></label>
+            <label class="displayNone"><small><b>Примечание:</b> Раздел «Модификаторы изображения» перемещен в <code>+ Модификаторы изображений</code> вверху, над текстовым полем «Запрос».</small></label>
         </div>
 
         <div id="preview" class="col-free">
@@ -457,25 +457,25 @@
             </div>
             <div id="preview-content">
                 <div id="preview-tools" class="displayNone">
-                    <button id="clear-all-previews" class="secondaryButton"><i class="fa-solid fa-trash-can icon"></i> Clear All</button>
-                    <button class="tertiaryButton" id="show-download-popup"><i class="fa-solid fa-download"></i><span> Download images</span></button>
+                    <button id="clear-all-previews" class="secondaryButton"><i class="fa-solid fa-trash-can icon"></i> Очистить все</button>
+                    <button class="tertiaryButton" id="show-download-popup"><i class="fa-solid fa-download"></i><span> Скачать изображения</span></button>
                     <div class="display-settings">
                         <button id="undo" class="displayNone primaryButton">
-                            Undo <i class="fa-solid fa-rotate-left icon"></i>
-                            <span class="simple-tooltip left">Undo last remove</span>
+                            Отменять <i class="fa-solid fa-rotate-left icon"></i>
+                            <span class="simple-tooltip left">Отменить последнее удаление</span>
                         </button>
                         <span class="auto-scroll"></span> <!-- hack for Rabbit Hole update -->
                         <button id="auto_scroll_btn" class="tertiaryButton">
                             <i class="fa-solid fa-arrows-up-to-line icon"></i>
                             <input id="auto_scroll" name="auto_scroll" type="checkbox" style="display: none">
                             <span class="simple-tooltip left">
-                                Scroll to generated image (<span class="state">OFF</span>)
+                                Прокрутка до созданного изображения (<span class="state">OFF</span>)
                             </span>
                         </button>
                         <button class="dropdown tertiaryButton">
                             <i class="fa-solid fa-magnifying-glass-plus icon dropbtn"></i>
                             <span class="simple-tooltip left">
-                                Image Size
+                                размер изображения
                             </span>
                         </button>
                         <div class="dropdown-content">
@@ -488,7 +488,6 @@
                     <div class="clearfix" style="clear: both;"></div>
                 </div>
                 <div id="supportBanner" class="displayNone">
-                    If you found this project useful and want to help keep it alive, please consider <a href="https://ko-fi.com/easydiffusion" target="_blank">buying me a coffee</a> to help cover the cost of development and maintenance! Thanks for your support!
                 </div>
             </div>
         </div>
@@ -496,26 +495,26 @@
 
         <div id="tab-content-settings" class="tab-content">
             <div id="system-settings" class="tab-content-inner">
-                <h1>System Settings</h1>
+                <h1>Настройки системы</h1>
                 <div class="parameters-table" id="system-settings-table"></div>
                 <br/>
-                <button id="save-system-settings-btn" class="primaryButton">Save</button>
+                <button id="save-system-settings-btn" class="primaryButton">Сохранять</button>
                 <div id="install-extras-container" class="displayNone">
                     <br/>
                     <div id="install-extras">
-                        <h3><i class="fa fa-cubes-stacked"></i> Optional Packages</h3>
+                        <h3><i class="fa fa-cubes-stacked"></i> Дополнительные пакеты</h3>
                         <div class="parameters-table" id="system-settings-install-extras-table"></div>
                     </div>
                 </div>
                 <br/><br/>
                 <div id="share-easy-diffusion">
-                   <h3><i class="fa fa-user-group"></i> Share Easy Diffusion</h3>
+                   <h3><i class="fa fa-user-group"></i> Делитесь Easy Diffusion</h3>
                    <div class="parameters-table" id="system-settings-network-table">
                    </div>
                 </div>
                 <br/><br/>
                 <div>
-                    <h3><i class="fa fa-microchip icon"></i> System Info</h3>
+                    <h3><i class="fa fa-microchip icon"></i> Сведения о системе</h3>
                     <div id="system-info">
                         <table>
                             <tr><td><label>Processor:</label></td><td id="system-info-cpu" class="value"></td></tr>
@@ -663,7 +662,7 @@
             </div>
         </div>
         <div class="center">
-            <button id="save-all-images" class="primaryButton"><i class="fa-solid fa-images"></i> Start download</button>
+            <button id="save-all-images" class="primaryButton"><i class="fa-solid fa-images"></i> Начать загрузку</button>
         </div>
     </dialog>
     <div id="save-settings-config" class="popup">
@@ -696,18 +695,18 @@
             <div id="modifiers-action-collapsibles-btn">
                 <i class="modifiers-action-icon fa-solid fa-square-plus"></i>
                 <span class="modifiers-action-text">
-                    Expand Categories
+                    Развернуть категории
                 </span>
             </div>
             <div>
-                <label for="preview-image">Image Style:</label>
+                <label for="preview-image">Стиль изображения:</label>
                 <select id="preview-image" name="preview-image" value="portrait">
-                    <option value="portrait" selected="">Face</option>
-                    <option value="landscape">Landscape</option>
+                    <option value="portrait" selected="">Лицо</option>
+                    <option value="landscape">Пейзаж</option>
                 </select>
             </div>
             <div>
-                <label for="modifier-card-size-slider">Thumbnail Size:</label>
+                <label for="modifier-card-size-slider">Размер миниатюры:</label>
                 <input id="modifier-card-size-slider" name="modifier-card-size-slider" value="0" type="range" min="-2" max="3">
             </div>
         </div>
@@ -717,18 +716,18 @@
     <dialog id="modifier-settings-config">
         <div id="modifier-settings-header" class="dialog-header">
             <div id="modifier-settings-header-left" class="dialog-header-left">
-                <h4>Custom Modifiers</h4>
-                <span>Set your custom modifiers (one per line)</span>
+                <H4>Свои модификаторы</H4>
+                <span>Установка пользовательских модификаторов (по одному на строку)</span>
             </div>
             <div id="modifier-settings-header-right">
                 <i id="modifier-settings-close-button" class="fa-solid fa-xmark fa-lg"></i>
             </div>
         </div>
-        <textarea id="custom-modifiers-input" placeholder="Enter your custom modifiers, one-per-line" spellcheck="false"></textarea>
+        <textarea id="custom-modifiers-input" placeholder="Введите свои пользовательские модификаторы в одну строку" spellcheck="false"></textarea>
         <div>
             <small>
-                <b>Tip:</b> You can include special characters like {} () [] and |. You can also put multiple comma-separated
-                phrases in a single line, to make a single modifier that combines all of those.
+                <b>Совет:</b> Вы можете включить специальные символы, такие как {} () [] и |. Вы также можете поставить несколько запятых-разделитель
+                фразы в одной строке, чтобы сделать один модификатор, который объединяет все эти.
             </small>
         </div>
     </dialog>
@@ -754,7 +753,7 @@
                 <span class="embeddings-action-text">Expand Categories</span>
             </button>
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input id="embeddings-search-box" type="text" spellcheck="false" autocomplete="off" placeholder="Search..." inputmode="search">
+            <input id="embeddings-search-box" type="text" spellcheck="false" autocomplete="off" placeholder="Поиск..." inputmode="search">
             <label for="embedding-card-size-selector"><small>Thumbnail Size:</small></label>
             <select id="embedding-card-size-selector" name="embedding-card-size-selector">
                 <option value="-2">0</option>
@@ -802,7 +801,7 @@
     <div id="image-editor" class="popup image-editor-popup">
         <div>
             <i class="close-button fa-solid fa-xmark"></i>
-            <h1>Image Editor</h1>
+            <h1>Редактор изображений</h1>
             <div class="flex-container">
                 <div class="editor-controls-left"></div>
                 <div class="editor-controls-center">
