@@ -54,7 +54,7 @@ var PARAMETERS = [
         label: "Auto-Save Images",
         note: "automatically saves images to the specified location",
         icon: "fa-download",
-        default: false,
+        default: true,
     },
     {
         id: "diskPath",
