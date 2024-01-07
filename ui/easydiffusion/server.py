@@ -218,7 +218,7 @@ def read_web_data_internal(key: str = None, **kwargs):
     elif key == "system_info":
         config = app.getConfig()
 
-        output_dir = config.get("force_save_path", "/var/www/html/delausait/domains/cloudmirage.delausait.ru/www/cloud-mirage/models/user")
+        output_dir = config.get("force_save_path", os.path.join(os.path.expanduser("~"), app.OUTPUT_DIRNAME))
 
         system_info = {
             "devices": task_manager.get_devices(),
