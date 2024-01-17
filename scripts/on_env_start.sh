@@ -27,15 +27,15 @@ fi
 if [ -f "scripts/install_status.txt" ] && [ `grep -c sd_ui_git_cloned scripts/install_status.txt` -gt "0" ]; then
     echo "Easy Diffusion's git repository was already installed. Updating from $update_branch.."
 
-    cd sd-ui-files
-
-    git add -A .
-    git stash
-    git reset --hard
-    git -c advice.detachedHead=false checkout "$update_branch"
-    git pull
-
-    cd ..
+#    cd sd-ui-files
+#
+#    git add -A .
+#    git stash
+#    git reset --hard
+#    git -c advice.detachedHead=false checkout "$update_branch"
+#    git pull
+#
+#    cd ..
 else
     printf "\n\nDownloading Easy Diffusion..\n\n"
     printf "Using the $update_branch channel\n\n"

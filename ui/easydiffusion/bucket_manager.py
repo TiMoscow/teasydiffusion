@@ -41,6 +41,8 @@ def init():
         finally:
             db.close()
 
+
+if False:
     @server_api.get("/bucket/{obj_path:path}")
     def bucket_get_object(obj_path: str, db: Session = Depends(get_db)):
         filename = get_filename_from_url(obj_path)
