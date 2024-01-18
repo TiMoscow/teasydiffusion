@@ -34,6 +34,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Extra
 from starlette.responses import FileResponse, JSONResponse, StreamingResponse
 from pycloudflared import try_cloudflare
+from googletrans import Translator
 
 SECRET_KEY = "83daa0256a2289b0fb23693bf1f6034d44396675749244721a2b20e896e11662"
 ALGORITHM = "HS256"
@@ -415,6 +416,14 @@ def ping_internal(session_id: str = None):
 def render_internal(req: dict):
     try:
         req = convert_legacy_render_req_to_new(req)
+
+        if req['prompt']:
+            # Googletrans is a free and unlimited python library that implemented Google Translate API
+            t = Translator().detect(req['prompt'])
+            if t.lang != "en":
+                translator = Translator(service_urls=['translate.google.ru'])
+                result = translator.translate(req['prompt'])
+                req['prompt'] = result.text
 
         # separate out the request data into rendering and task-specific data
         render_req: GenerateImageRequest = GenerateImageRequest.parse_obj(req)

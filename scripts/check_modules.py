@@ -29,6 +29,7 @@ modules_to_check = {
     "passlib": "1.7.4",
     "PyJWT": "2.8.0",
     "python-jose": "3.3.0",
+    "googletrans": "4.0.0rc1",
     "pycloudflared": "0.2.0",
     "ruamel.yaml": "0.17.21",
     "sqlalchemy": "2.0.19",
