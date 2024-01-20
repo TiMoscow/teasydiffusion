@@ -6,6 +6,7 @@ import datetime
 import mimetypes
 import os
 import traceback
+import random
 from typing import List, Union
 
 from easydiffusion import app, model_manager, task_manager, package_manager
@@ -22,7 +23,6 @@ from easydiffusion.types import (
     convert_legacy_render_req_to_new,
 )
 from easydiffusion.utils import log
-# from fastapi import FastAPI, HTTPException
 from fastapi import Depends, FastAPI, Security, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from starlette.middleware.cors import CORSMiddleware
@@ -38,7 +38,7 @@ from googletrans import Translator
 
 SECRET_KEY = "83daa0256a2289b0fb23693bf1f6034d44396675749244721a2b20e896e11662"
 ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 1440
+ACCESS_TOKEN_EXPIRE_MINUTES = 365
 
 db = {
     "timoscow": {
@@ -194,18 +194,6 @@ def init():
         name="media",
     )
 
-
-
-#     @server_api.post("/login", response_model=Token, summary="Autentificación de usuario")
-#     def login(form_data: OAuth2PasswordRequestForm = Depends()):
-#         to_encode = {"usuario_id": 1, "nombre": form_data.username}
-#         expire = datetime.datetime.utcnow() + timedelta(minutes=60)
-#         to_encode.update({"exp": expire, "sub": "Test"})
-#         access_token = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
-#         return Token(access_token = access_token, token_type = 'Bearer')
-
-
-
     for plugins_dir, dir_prefix in app.UI_PLUGINS_SOURCES:
         server_api.mount(
             f"/plugins/{dir_prefix}",
@@ -219,7 +207,7 @@ def init():
         if not user:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED,
                                 detail="Incorrect username or password", headers={"WWW-Authenticate": "Bearer"})
-        access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
+        access_token_expires = timedelta(days=ACCESS_TOKEN_EXPIRE_MINUTES)
         access_token = create_access_token(
             data={"sub": user.username}, expires_delta=access_token_expires)
         return {"access_token": access_token, "token_type": "bearer"}
@@ -234,10 +222,6 @@ def init():
     async def read_own_items(current_user: User = Depends(get_current_active_user)):
         return [{"item_id": 1, "owner": current_user}]
 
-#     @server_api.get("/test")
-#     def test(current_user: Usuario_Session = Depends(get_current_user)):
-#         # Verifico los datos
-#         return {'data': 'ok'}
 
 
 
@@ -417,8 +401,14 @@ def render_internal(req: dict):
     try:
         req = convert_legacy_render_req_to_new(req)
 
-        if req['prompt']:
-            # Googletrans is a free and unlimited python library that implemented Google Translate API
+        #Generating random numbers in seed
+        if (('seed' in req) and (req['seed'] == "random")):
+            r1 = random.randint(1, 1000000000)
+            r2 = random.randint(144, 244)-random.randint(24, 133)
+            req['seed'] = r1+r2
+
+        # Googletrans is a free and unlimited python library that implemented Google Translate API
+        if (('prompt' in req) and (req.get("prompt", None))):
             t = Translator().detect(req['prompt'])
             if t.lang != "en":
                 translator = Translator(service_urls=['translate.google.ru'])
